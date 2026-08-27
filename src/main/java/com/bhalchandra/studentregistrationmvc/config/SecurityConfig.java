@@ -89,9 +89,9 @@ public class SecurityConfig {
 
 				// index.jsp is directly under webapp (learning project)
 
-//			.requestMatchers("/auth/login")
+				.requestMatchers("/auth/login")
 
-//			.permitAll()			    
+			.permitAll()			    
 
 		    .requestMatchers("/deleteStudent")
 
@@ -110,21 +110,17 @@ public class SecurityConfig {
 
 		    //REst control
 
-//		    .requestMatchers(HttpMethod.GET, "/student", "/student/**")
+		    .requestMatchers(HttpMethod.GET, "/student", "/student/**")
+		    .hasAnyRole("ADMIN", "FACULTY")
 
-//		    .hasAnyRole("ADMIN", "FACULTY")
+		    .requestMatchers(HttpMethod.POST, "/student")
+		    .hasAnyRole("ADMIN", "FACULTY")
 
-//
 
-//		    .requestMatchers(HttpMethod.POST, "/student")
 
-//		    .hasAnyRole("ADMIN", "FACULTY")
+		    .requestMatchers(HttpMethod.DELETE, "/student/**")
 
-//
-
-//		    .requestMatchers(HttpMethod.DELETE, "/student/**")
-
-//		    .hasRole("ADMIN")
+	    .hasRole("ADMIN")
 
 
 		    .anyRequest()

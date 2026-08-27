@@ -259,13 +259,13 @@ Create the database:
 CREATE DATABASE studentdb;
 ```
 
-Configure `src/main/resources/application.properties`:
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/studentdb
-spring.datasource.username=root
-spring.datasource.password=YOUR_PASSWORD
-jwt.secret=YOUR_BASE64_SECRET
-```
+## Configuration
+
+This project uses environment variables for sensitive configuration.
+
+Before running the application, configure:
+
+JWT_SECRET
 
 > Never commit real secrets. Use an `application.properties.example` with placeholders and `.gitignore` the real file.
 
